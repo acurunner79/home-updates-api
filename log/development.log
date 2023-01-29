@@ -1,0 +1,235 @@
+  [1m[35m (102.5ms)[0m  [1m[35mCREATE DATABASE "home_updates_api_development" ENCODING = 'unicode'[0m
+  [1m[35m (46.0ms)[0m  [1m[35mCREATE DATABASE "home_updates_api_test" ENCODING = 'unicode'[0m
+Started GET "/" for ::1 at 2023-01-28 17:52:26 -0600
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /var/lib/gems/3.0.0/gems/railties-7.0.4.2/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /var/lib/gems/3.0.0/gems/railties-7.0.4.2/lib/rails/templates/rails/welcome/index.html.erb (Duration: 0.8ms | Allocations: 932)
+Completed 200 OK in 9ms (Views: 3.2ms | ActiveRecord: 0.0ms | Allocations: 7833)
+
+
+  [1m[35m (24.4ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[35m (19.5ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT pg_try_advisory_lock(1917072438339325050)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateLocations (20230128235513)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (11.0ms)[0m  [1m[35mCREATE TABLE "locations" ("id" bigserial primary key, "name" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20230128235513"]]
+  [1m[36mTRANSACTION (2.5ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateProjects (20230129004349)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (10.6ms)[0m  [1m[35mCREATE TABLE "projects" ("id" bigserial primary key, "name" character varying, "priority" character varying, "description" character varying, "supply1" character varying, "supply2" character varying, "supply3" character varying, "supply4" character varying, "supply5" character varying, "supply6" character varying, "supply7" character varying, "supply8" character varying, "supply9" character varying, "supply10" character varying, "estimate" integer, "start" character varying, "completion" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20230129004349"]]
+  [1m[36mTRANSACTION (2.0ms)[0m  [1m[35mCOMMIT[0m
+Migrating to AddForeignKeyToProjects (20230129004530)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mALTER TABLE "projects" ADD "location_id" integer[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20230129004530"]]
+  [1m[36mTRANSACTION (2.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.3ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2023-01-29 00:46:54.390534"], ["updated_at", "2023-01-29 00:46:54.390534"]]
+  [1m[36mTRANSACTION (2.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(1917072438339325050)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mLocation Create (0.4ms)[0m  [1m[32mINSERT INTO "locations" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Test location"], ["created_at", "2023-01-29 00:58:25.276995"], ["updated_at", "2023-01-29 00:58:25.276995"]]
+  [1m[36mTRANSACTION (11.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/locations" for ::1 at 2023-01-28 18:59:53 -0600
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by LocationsController#index as HTML
+  [1m[36mLocation Load (0.4ms)[0m  [1m[34mSELECT "locations".* FROM "locations"[0m
+  ↳ app/controllers/locations_controller.rb:8:in `index'
+Completed 200 OK in 33ms (Views: 7.7ms | ActiveRecord: 3.8ms | Allocations: 38020)
+
+
+Started GET "/favicon.ico" for ::1 at 2023-01-28 18:59:53 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/favicon.ico"):
+  
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mLocation Load (0.1ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mProject Create (0.4ms)[0m  [1m[32mINSERT INTO "projects" ("name", "priority", "description", "supply1", "supply2", "supply3", "supply4", "supply5", "supply6", "supply7", "supply8", "supply9", "supply10", "estimate", "start", "completion", "created_at", "updated_at", "location_id") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17, $18, $19) RETURNING "id"[0m  [["name", "Test project"], ["priority", "Low"], ["description", "Test description"], ["supply1", "1"], ["supply2", "2"], ["supply3", "3"], ["supply4", "4"], ["supply5", "5"], ["supply6", "6"], ["supply7", "7"], ["supply8", "8"], ["supply9", "9"], ["supply10", "10"], ["estimate", 100], ["start", "1/31/2023"], ["completion", "2/28/2023"], ["created_at", "2023-01-29 01:00:58.354423"], ["updated_at", "2023-01-29 01:00:58.354423"], ["location_id", 1]]
+  [1m[36mTRANSACTION (3.0ms)[0m  [1m[35mCOMMIT[0m
+Started GET "/locations" for ::1 at 2023-01-28 19:01:08 -0600
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by LocationsController#index as HTML
+  [1m[36mLocation Load (0.5ms)[0m  [1m[34mSELECT "locations".* FROM "locations"[0m
+  ↳ app/controllers/locations_controller.rb:8:in `index'
+Completed 200 OK in 31ms (Views: 8.9ms | ActiveRecord: 3.2ms | Allocations: 38020)
+
+
+Started GET "/locations" for ::1 at 2023-01-28 19:01:11 -0600
+Processing by LocationsController#index as HTML
+  [1m[36mLocation Load (0.3ms)[0m  [1m[34mSELECT "locations".* FROM "locations"[0m
+  ↳ app/controllers/locations_controller.rb:8:in `index'
+Completed 200 OK in 2ms (Views: 1.7ms | ActiveRecord: 0.3ms | Allocations: 825)
+
+
+Started GET "/locations" for ::1 at 2023-01-28 19:01:12 -0600
+Processing by LocationsController#index as HTML
+  [1m[36mLocation Load (0.2ms)[0m  [1m[34mSELECT "locations".* FROM "locations"[0m
+  ↳ app/controllers/locations_controller.rb:8:in `index'
+Completed 200 OK in 2ms (Views: 1.2ms | ActiveRecord: 0.2ms | Allocations: 722)
+
+
+Started GET "/projects" for ::1 at 2023-01-28 19:01:27 -0600
+Processing by ProjectsController#index as HTML
+  [1m[36mProject Load (0.4ms)[0m  [1m[34mSELECT "projects".* FROM "projects"[0m
+  ↳ app/controllers/projects_controller.rb:8:in `index'
+Completed 200 OK in 19ms (Views: 14.2ms | ActiveRecord: 2.7ms | Allocations: 25352)
+
+
+Started GET "/locations" for ::1 at 2023-01-28 19:04:27 -0600
+Processing by LocationsController#index as */*
+  Parameters: {"link"=>"https://www.amazon.com/Comgrow-Creality-Ender-Aluminum-220x220x250mm/dp/B07BR3F9N6/ref=sr_1_3?keywords=3d+printer&qid=1666208012&qu=eyJxc2MiOiI2Ljc1IiwicXNhIjoiNS44MyIsInFzcCI6IjUuMDAifQ%3D%3D&sr=8-3", "description"=>"Creality Ender 3 3D printer", "notes"=>"Any Ender 3 series will work plus spools of PLA", "is_purchased"=>false, "user_id"=>2, "location"=>{}}
+  [1m[36mLocation Load (0.2ms)[0m  [1m[34mSELECT "locations".* FROM "locations"[0m
+  ↳ app/controllers/locations_controller.rb:8:in `index'
+Completed 200 OK in 1ms (Views: 0.8ms | ActiveRecord: 0.2ms | Allocations: 732)
+
+
+Started GET "/projects" for ::1 at 2023-01-28 19:22:00 -0600
+Processing by ProjectsController#index as HTML
+  [1m[36mProject Load (0.4ms)[0m  [1m[34mSELECT "projects".* FROM "projects"[0m
+  ↳ app/controllers/projects_controller.rb:8:in `index'
+Completed 200 OK in 16ms (Views: 14.3ms | ActiveRecord: 3.9ms | Allocations: 10915)
+
+
+Started GET "/projects" for ::1 at 2023-01-28 19:22:02 -0600
+Processing by ProjectsController#index as HTML
+  [1m[36mProject Load (0.2ms)[0m  [1m[34mSELECT "projects".* FROM "projects"[0m
+  ↳ app/controllers/projects_controller.rb:8:in `index'
+Completed 200 OK in 1ms (Views: 1.0ms | ActiveRecord: 0.2ms | Allocations: 925)
+
+
+Started GET "/locations/1" for ::1 at 2023-01-28 19:22:21 -0600
+Processing by LocationsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mLocation Load (0.2ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/locations_controller.rb:45:in `set_location'
+  [1m[36mProject Load (0.2ms)[0m  [1m[34mSELECT "projects".* FROM "projects" WHERE "projects"."location_id" = $1[0m  [["location_id", 1]]
+  ↳ app/controllers/locations_controller.rb:14:in `show'
+Completed 200 OK in 12ms (Views: 2.9ms | ActiveRecord: 0.5ms | Allocations: 11567)
+
+
+Started GET "/locations/1" for ::1 at 2023-01-28 19:25:32 -0600
+Processing by LocationsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mLocation Load (0.1ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/locations_controller.rb:46:in `set_location'
+Completed 500 Internal Server Error in 13ms (ActiveRecord: 4.6ms | Allocations: 6349)
+
+
+  
+NameError (undefined local variable or method `projects' for #<LocationsController:0x00000000010d10>
+Did you mean?  projects_url):
+  
+app/controllers/locations_controller.rb:15:in `show'
+Started GET "/locations/1" for ::1 at 2023-01-28 19:25:57 -0600
+Processing by LocationsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mLocation Load (0.2ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/locations_controller.rb:46:in `set_location'
+  [1m[36mProject Load (0.1ms)[0m  [1m[34mSELECT "projects".* FROM "projects" WHERE "projects"."location_id" = $1[0m  [["location_id", 1]]
+  ↳ app/controllers/locations_controller.rb:14:in `show'
+Completed 200 OK in 15ms (Views: 5.4ms | ActiveRecord: 3.9ms | Allocations: 12862)
+
+
+Started GET "/locations/1" for ::1 at 2023-01-28 19:26:02 -0600
+Processing by LocationsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mLocation Load (0.2ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/locations_controller.rb:46:in `set_location'
+  [1m[36mProject Load (0.1ms)[0m  [1m[34mSELECT "projects".* FROM "projects" WHERE "projects"."location_id" = $1[0m  [["location_id", 1]]
+  ↳ app/controllers/locations_controller.rb:14:in `show'
+Completed 200 OK in 2ms (Views: 1.0ms | ActiveRecord: 0.3ms | Allocations: 1585)
+
+
+Started GET "/locations" for ::1 at 2023-01-28 19:26:06 -0600
+Processing by LocationsController#index as HTML
+Completed 500 Internal Server Error in 4ms (ActiveRecord: 0.0ms | Allocations: 2146)
+
+
+  
+NameError (undefined local variable or method `projects' for #<LocationsController:0x00000000014c30>
+Did you mean?  projects_url):
+  
+app/controllers/locations_controller.rb:8:in `index'
+Started GET "/locations" for ::1 at 2023-01-28 19:27:32 -0600
+Processing by LocationsController#index as HTML
+  [1m[36mLocation Load (0.2ms)[0m  [1m[34mSELECT "locations".* FROM "locations"[0m
+  ↳ app/controllers/locations_controller.rb:8:in `index'
+  [1m[36mProject Load (0.1ms)[0m  [1m[34mSELECT "projects".* FROM "projects" WHERE "projects"."location_id" = $1[0m  [["location_id", 1]]
+  ↳ app/controllers/locations_controller.rb:8:in `index'
+Completed 200 OK in 17ms (Views: 0.1ms | ActiveRecord: 4.6ms | Allocations: 12696)
+
+
+Started POST "/locations" for ::1 at 2023-01-28 20:48:29 -0600
+Processing by LocationsController#create as */*
+  Parameters: {"name"=>"Test location 2", "location"=>{"name"=>"Test location 2"}}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/locations_controller.rb:22:in `create'
+  [1m[36mLocation Create (0.4ms)[0m  [1m[32mINSERT INTO "locations" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Test location 2"], ["created_at", "2023-01-29 02:48:29.866291"], ["updated_at", "2023-01-29 02:48:29.866291"]]
+  ↳ app/controllers/locations_controller.rb:22:in `create'
+  [1m[36mTRANSACTION (12.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/locations_controller.rb:22:in `create'
+Completed 201 Created in 26ms (Views: 0.6ms | ActiveRecord: 17.7ms | Allocations: 5620)
+
+
+Started DELETE "/locations/2" for ::1 at 2023-01-28 20:48:50 -0600
+Processing by LocationsController#destroy as */*
+  Parameters: {"name"=>"Test location 2", "id"=>"2", "location"=>{"name"=>"Test location 2"}}
+  [1m[36mLocation Load (0.3ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/locations_controller.rb:46:in `set_location'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/locations_controller.rb:40:in `destroy'
+  [1m[36mLocation Destroy (0.2ms)[0m  [1m[31mDELETE FROM "locations" WHERE "locations"."id" = $1[0m  [["id", 2]]
+  ↳ app/controllers/locations_controller.rb:40:in `destroy'
+  [1m[36mTRANSACTION (12.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/locations_controller.rb:40:in `destroy'
+Completed 204 No Content in 17ms (ActiveRecord: 13.6ms | Allocations: 2110)
+
+
+Started GET "/locations/2" for ::1 at 2023-01-28 20:48:56 -0600
+Processing by LocationsController#show as */*
+  Parameters: {"name"=>"Test location 2", "id"=>"2", "location"=>{"name"=>"Test location 2"}}
+  [1m[36mLocation Load (0.3ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/locations_controller.rb:46:in `set_location'
+Completed 404 Not Found in 1ms (ActiveRecord: 0.3ms | Allocations: 535)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Location with 'id'=2):
+  
+app/controllers/locations_controller.rb:46:in `set_location'
+Started GET "/locations" for ::1 at 2023-01-28 20:49:02 -0600
+Processing by LocationsController#index as HTML
+  [1m[36mLocation Load (0.2ms)[0m  [1m[34mSELECT "locations".* FROM "locations"[0m
+  ↳ app/controllers/locations_controller.rb:8:in `index'
+  [1m[36mProject Load (0.3ms)[0m  [1m[34mSELECT "projects".* FROM "projects" WHERE "projects"."location_id" = $1[0m  [["location_id", 1]]
+  ↳ app/controllers/locations_controller.rb:8:in `index'
+Completed 200 OK in 3ms (Views: 0.1ms | ActiveRecord: 0.5ms | Allocations: 1591)
+
+
+Started GET "/locations" for ::1 at 2023-01-28 20:49:03 -0600
+Processing by LocationsController#index as HTML
+  [1m[36mLocation Load (0.2ms)[0m  [1m[34mSELECT "locations".* FROM "locations"[0m
+  ↳ app/controllers/locations_controller.rb:8:in `index'
+  [1m[36mProject Load (0.2ms)[0m  [1m[34mSELECT "projects".* FROM "projects" WHERE "projects"."location_id" = $1[0m  [["location_id", 1]]
+  ↳ app/controllers/locations_controller.rb:8:in `index'
+Completed 200 OK in 3ms (Views: 0.1ms | ActiveRecord: 0.4ms | Allocations: 1563)
+
+
+Started GET "/projects" for ::1 at 2023-01-28 20:50:14 -0600
+Processing by ProjectsController#index as */*
+  Parameters: {"name"=>"Test location 2", "project"=>{"name"=>"Test location 2"}}
+  [1m[36mProject Load (0.2ms)[0m  [1m[34mSELECT "projects".* FROM "projects"[0m
+  ↳ app/controllers/projects_controller.rb:8:in `index'
+Completed 200 OK in 2ms (Views: 1.2ms | ActiveRecord: 0.2ms | Allocations: 1218)
+
+
