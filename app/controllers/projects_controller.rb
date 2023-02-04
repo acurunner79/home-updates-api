@@ -1,5 +1,7 @@
 class ProjectsController < ApplicationController
   before_action :set_project, only: %i[ show update destroy ]
+  # resources :set_project, only: %i[ show update destroy ]
+  # resources :projects
 
   # GET /projects
   def index
@@ -15,7 +17,9 @@ class ProjectsController < ApplicationController
 
   # POST /projects
   def create
+    # @location = Location.find(params[:location_id])
     @project = Project.new(project_params)
+    # @project = @location.products.new(project_params)
 
     if @project.save
       render json: @project, status: :created, location: @project
@@ -46,6 +50,6 @@ class ProjectsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def project_params
-      params.require(:project).permit(:name, :priority, :description, :supply1, :supply2, :supply3, :supply4, :supply5, :supply6, :supply7, :supply8, :supply9, :supply10, :estimate, :start, :completion)
+      params.require(:project).permit(:name, :priority, :description, :supply1, :supply2, :supply3, :supply4, :supply5, :supply6, :supply7, :supply8, :supply9, :supply10, :estimate, :start, :completion, :location_id)
     end
 end
