@@ -1,0 +1,18 @@
+databases:
+  - name: home_updates_api
+    databaseName: home_updates_api
+    user: home_updates_api
+
+services:
+  - type: web
+    name: home_updates_api
+    runtime: ruby
+    buildCommand: "./bin/render-build.sh"
+    startCommand: "bundle exec puma -C config/puma.rb"
+    envVars:
+      - key: DATABASE_URL
+        fromDatabase:
+          name: home_updates_api
+          property: connectionString
+      - key: RAILS_MASTER_KEY
+        sync: false
