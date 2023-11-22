@@ -15,4 +15,4 @@ services:
           name: home_updates_api
           property: connectionString
       - key: RAILS_MASTER_KEY
-        sync: false
+        sync: true
