@@ -14,5 +14,5 @@ services:
         fromDatabase:
           name: home_updates_api
           property: connectionString
-      - key: 0548398b5315f8f665874d1dcd30e957
+      - key: RAILS_MASTER_KEY
         sync: false
